@@ -12,12 +12,12 @@ class table_name:
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM table_name;"
-
         results = connectToMySQL("first_flask").query_db(query)
-        items = []
-        for item in results:
-            items.append(cls(item))
-        return items
+        # items = []
+        # for item in results:
+        #     items.append(cls(item))
+        # return items
+        return [cls(result) for result in results]
 
     @classmethod
     def save(cls, data):
